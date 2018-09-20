@@ -30,4 +30,4 @@ python solver.py
 Program ini tidak membutuhkan hal spesifik pada deployment. Contoh konfigurasi dapat dilihat pada [Dockerfile](Dockerfile). 
 
 ## Flag
-`Arkavidia{0ff_13y_0n3_3xpl01t3d}`
+`Arkav5{0ff_13y_0n3_3xpl01t3d}`
