@@ -64,7 +64,7 @@ for i in range(loop):
 		print 'Nice!'
 		sys.stdout.flush()
 	else:
-		print 'Nope. Decrypted should be ' + word + '.'
+		print 'Nope.'
 		print 'Bye!'
 		sys.stdout.flush()
 		break
