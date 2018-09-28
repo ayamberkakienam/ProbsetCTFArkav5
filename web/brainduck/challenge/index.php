@@ -14,7 +14,7 @@
       if ($file) {
         try {
           require 'brainduck.php';
-          $brainduck = new Brainduck(file_get_contents($file['path']), true, true);
+          $brainduck = new Brainduck(file_get_contents($file['path']), 'Dummy input', true);
           $output = $brainduck->run(true);
         } catch (Exception $e) {
           $output = null;

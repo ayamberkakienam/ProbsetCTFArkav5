@@ -166,22 +166,25 @@ class App {
     }
 
     if ($_FILES['file']['size'] > 500) {
-      $_SESSION['error'] = 'File tidak boleh melebihi 500 bytes';
+      $_SESSION['error'] = 'Ukuran file tidak boleh melebihi 500 bytes';
       return false;
     }
 
+    // harusnya cuma boleh ><+-[].,
+    // tapi ya sudah lah ¯\_(ツ)_/¯
     $content = file_get_contents($_FILES['file']['tmp_name']);
-    if (!ctype_punct($content)) {
-      $_SESSION['error'] = 'Isi file Brainduck tidak boleh ada karakter alfanumerik maupun whitespace';
+    if (!ctype_punct(preg_replace('/\s+/', '', $content))) {
+      $_SESSION['error'] = 'Isi file hanya boleh ada karakter tanda baca dan whitespace';
       return false;
     }
+
+    $name = $_FILES['file']['name'];
+    $name = substr($name, 0, 50);
+    $name = preg_replace('/[^a-zA-Z0-9_\.]/', '', $name);
 
     // bibit unggul dilarang ngehack
     $blacklist = array('.php', '.php3', '.php4', '.php5', '.php7');
-    $name = $_FILES['file']['name'];
-    $name = preg_replace('/[^a-zA-Z0-9_\.]/', '', $name);
     $name = str_ireplace($blacklist, '', $name);
-    $name = substr($name, 0, 50);
 
     $rand = bin2hex(random_bytes(20));
     $file = "uploads/$rand-$name";
