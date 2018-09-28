@@ -5,6 +5,9 @@ RUN docker-php-ext-install pdo pdo_mysql
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
+RUN usermod -u 33 www-data
+RUN groupmod -g 33 www-data
+
 CMD ["php-fpm"]
 
 EXPOSE 9000
