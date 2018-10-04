@@ -19,7 +19,6 @@ Saat melakukan upload file, string `.php` pada nama file akan di-filter. Akan te
 Selanjutnya, web akan melakukan pengecekan isi file yang diupload. File Brainduck tidak boleh mengandung karakter alfanumerik ataupun whitespace. Nyatanya, PHP membolehkan short open tag secara default, yaitu `<?=` untuk menandakan kode PHP dimulai. Hal ini menyebabkan kita dapat membuat webshell hanya dengan karakter-karakter simbol. Salah satu webshell yang dapat digunakan adalah: [1](https://gist.github.com/mvisat/03592a5ab0743cd43c2aa65bf45fef21), [2](https://securityonline.info/bypass-waf-php-webshell-without-numbers-letters/).
 
 ## Proof Of Concept
-- Registrasi dan login user
 - Upload file [webshell](solver/webshell.p.phphp)
 - Akses http://server.ip/uploads/nama_file.php?_=system&__=cat%20../flag.php
 
