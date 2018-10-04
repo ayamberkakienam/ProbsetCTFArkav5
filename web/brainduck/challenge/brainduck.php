@@ -1,7 +1,5 @@
 <?php
 
-// Taken from https://github.com/dotzero/brainfuck-php/blob/master/src/Brainfuck.php
-
 class Brainduck
 {
     /**

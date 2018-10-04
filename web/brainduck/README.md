@@ -1,9 +1,7 @@
 # Brainduck [Hard]
 
 ## File yang diberikan ke peserta
-Semua file `.php` pada folder [challenge](challenge/) **kecuali**:
-- [flag.php](challenge/flag.php)
-- [config.php](challenge/config.php)
+Tidak ada
 
 ## Build
 Edit port pada file [.env](.env) menjadi port yang ingin diforward ke host. Lalu jalankan:

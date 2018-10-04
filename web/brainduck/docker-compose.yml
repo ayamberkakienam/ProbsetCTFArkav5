@@ -1,17 +1,6 @@
 version: '3'
 
 services:
-    mariadb:
-        image: mariadb:latest
-        environment:
-            - MYSQL_RANDOM_ROOT_PASSWORD=yes
-            - MYSQL_DATABASE=${DB_NAME}
-            - MYSQL_USER=${DB_USER}
-            - MYSQL_PASSWORD=${DB_PASS}
-        volumes:
-            - ./data/database:/var/lib/mysql
-            - ./db.sql:/docker-entrypoint-initdb.d/init.sql
-
     php-fpm:
         build:
             context: ./php-fpm
@@ -19,11 +8,6 @@ services:
             - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
             - ./challenge:/var/www/public
             - ./data/uploads:/var/www/public/uploads
-        links:
-            - mariadb
-        depends_on:
-            - mariadb
-
     nginx:
         build:
             context: ./nginx
