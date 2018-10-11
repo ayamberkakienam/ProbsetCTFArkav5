@@ -23,7 +23,7 @@ static const unsigned char d[] = {
     66,66,66,66,66,66
 };
 
-int just_another_random_fFfff (char *in, unsigned char *out) { 
+int base64_decode (char *in, unsigned char *out) { 
     char *end = in + strlen(in);
     char iter = 0;
     uint32_t buf = 0;
@@ -914,9 +914,9 @@ int main() {
 
 	for (i = 0; i < 8; i++) {
 		if (i % 2 == 0) {
-			just_another_random_fFfff(aAaaa, buf);
+			base64_decode(aAaaa, buf);
 		} else {
-			just_another_random_fFfff(buf, aAaaa);
+			base64_decode(buf, aAaaa);
 		}
 	}
 
