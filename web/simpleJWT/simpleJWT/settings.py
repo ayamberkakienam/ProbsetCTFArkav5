@@ -23,9 +23,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'simpleJWT/templates')
 SECRET_KEY = '*xj67zs@9b^+n^bvecibdi4^($@ouw0a6v7#340g1u8nnxx-1#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
