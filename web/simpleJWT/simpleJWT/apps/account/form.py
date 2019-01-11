@@ -2,16 +2,13 @@ from django import forms
 
 from django.contrib.auth.models import User
 
-class LoginForm(forms.ModelForm):
+class LoginForm(forms.Form):
     username = forms.RegexField(
         label='Username',
         max_length=30,
         regex=r'^[\w-]+$',
     )
-
-    class Meta:
-        model = User
-        fields = ('username', 'password',)
+    password = forms.CharField(widget=forms.PasswordInput)
 
 class RegistrationForm(forms.ModelForm):
     username = forms.RegexField(
@@ -19,6 +16,7 @@ class RegistrationForm(forms.ModelForm):
         max_length=30,
         regex=r'^[\w-]+$',
     )
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = User
-        fields = ('username', 'email', 'password',)
+        fields = ('username', 'password',)

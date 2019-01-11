@@ -8,13 +8,22 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div class="content container">
+        <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+                <ul class="nav navbar-nav">
+                  {% if request.COOKIES.session is not None %}
+                    <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+                  {% else %}
+                    <li><a class="navbar-link" href="{% url 'login' %}">Login</a></li>
+                    <li><a class="navbar-link" href="{% url 'register' %}">Register</a></li>
+                  {% endif %}
+                </ul>
             </div>
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+
         </div>
     </body>
 </html>
