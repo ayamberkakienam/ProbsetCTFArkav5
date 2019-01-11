@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - ${PORT}:31337
+    volumes:
+      - ./.env:/app/.env
+      - ./view:/app/view
+    links:
+      - db
+    depends_on:
+      - db
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_USER=${DATABASE_USERNAME}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/01-init.sql
