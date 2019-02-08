@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+
+  <title>LOOΠΔ Fancafe</title>
+  <style>
+    a.card-clickable, a.card-clickable:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+    img.card-img-featured {
+      height: 15rem;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">LOOΠΔ Fancafe</a>
+    <ul class="nav navbar-nav w-100">
+      <li class="text-truncate w-100">
+        <form class="input-group" method="POST">
+          <input class="form-control" type="search" name="keyword" autocomplete="off" placeholder="Keyword... (example: Chuu)"
+            autofocus>
+          <div class="input-group-btn">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container mt-2">
+    {{range .StickyPosts}}
+    <a href="/posts/{{.ID}}" class="card-clickable mb-2">
+      <div class="card text-center">
+        <img src="{{.Image}}" class="card-img-top card-img-featured" alt="{{.Title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{.Title}}</h5>
+          <p class="card-text">{{.Content}}</p>
+        </div>
+      </div>
+    </a>
+    {{end}}
+
+    <div class="card-columns">
+      {{range .Posts}}
+      <a href="/posts/{{.ID}}" class="card-clickable">
+        <div class="card">
+          <img src="{{.Image}}" class="card-img-top" alt="{{.Title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{.Title}}</h5>
+            <p class="card-text">{{.Content}}</p>
+          </div>
+        </div>
+      </a>
+      {{end}}
+    </div>
+  </div>
+
+</body>
+
+</html>
