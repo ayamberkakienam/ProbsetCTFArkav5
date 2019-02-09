@@ -49,7 +49,7 @@ func (p *PostService) Search(keyword string) ([]entity.Post, error) {
 	keyword = strings.Fields(filter(keyword))[0]
 
 	query := fmt.Sprintf(
-		"SELECT * FROM posts WHERE is_deleted = false AND (title LIKE '%%%s%%' OR content LIKE '%%%s%%')",
+		"SELECT * FROM posts WHERE is_deleted = false AND title LIKE '%%%s%%' OR content LIKE '%%%s%%'",
 		keyword, keyword,
 	)
 	log.Println(query)
